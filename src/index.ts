@@ -15,7 +15,10 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
-
+// Rota de teste para verificar se o servidor está atendendo
+app.get('/test', (req, res) => {
+    res.send('<h1>Servidor está funcionando corretamente!</h1>');
+});
 // Rota inicial para exibir uma página de boas-vindas
 app.get('/', (req, res) => {
     res.send('<h1>Bem-vindo ao servidor</h1>');
