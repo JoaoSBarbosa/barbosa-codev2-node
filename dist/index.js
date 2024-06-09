@@ -17,6 +17,10 @@ app.use((0, cors_1.default)({
     allowedHeaders: ['Content-Type'],
 }));
 app.use(body_parser_1.default.json());
+// Rota inicial para exibir uma página de boas-vindas
+app.get('/', (req, res) => {
+    res.send('<h1>Bem-vindo ao servidor</h1>');
+});
 app.post('/send-email', (req, res) => {
     const { name, email, subject, phone, message } = req.body;
     const transporter = nodemailer_1.default.createTransport({

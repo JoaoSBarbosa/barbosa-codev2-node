@@ -1,5 +1,3 @@
-
-
 import express from 'express';
 import nodemailer from 'nodemailer';
 import cors from 'cors';
@@ -17,6 +15,11 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
+
+// Rota inicial para exibir uma página de boas-vindas
+app.get('/', (req, res) => {
+    res.send('<h1>Bem-vindo ao servidor</h1>');
+});
 
 app.post('/send-email', (req, res) => {
     const { name, email, subject, phone, message } = req.body;
